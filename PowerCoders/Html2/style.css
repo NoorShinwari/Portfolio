@@ -1,0 +1,40 @@
+body 
+{   
+    background-image: url(blackhole.gif);
+
+    ;
+    margin: 0;
+    background-size: 100% 100% ;
+    background-position: cover
+    ;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    
+    
+}
+
+h1 {
+    color:firebrick;
+    width: 100%;
+    
+}
+
+h2{
+    color: black;
+    border: 2px solid black;
+    width: 35%;
+    background-color: firebrick;
+}
+p {
+    color:whitesmoke;
+    
+}
+ .container {     
+     width: 35%;
+    border-style: solid;
+    border: 2px solid firebrick;
+    border-collapse: collapse;
+    background-image: url(blackhole.gif);
+    background-position: center;
+    opacity: 50%;
+}
