@@ -9,8 +9,9 @@
 <body>
     <h1>Guess What</h1>
     <script>
-        let guessNumber = prompt("Guess a number");
         let systemNumber = Math.floor(Math.random()*10+1);
+        
+        let guessNumber = prompt("Guess a number");
         if (guessNumber == systemNumber )
         {
             alert(`Your guess ${guessNumber}number is correct`);
