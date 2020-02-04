@@ -1,0 +1,17 @@
+h2 {
+    background-color: red;
+    color: silver;
+  }
+  h2 {font-size: 65px;}
+  .title {
+    font-size: 65px;
+  }
+  p {
+    padding: 5px;
+  }
+
+  p {
+    font-size: 20px;
+    width: 10em;
+  }
+  <h1 class="title">Homepage</h1>

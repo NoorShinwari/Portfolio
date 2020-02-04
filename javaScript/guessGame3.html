@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <h1>Guess it Again!!!!</h1>
+    <script>
+        let guess = 999999
+        let number = Math.floor(Math.random())*10+1;
+        while (guess != number) {
+            number = prompt("Sorry, Guess Again")
+        }
+    </script>
+</body>
+</html>

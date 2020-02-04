@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>guess prompt</title>
+</head>
+<body>
+    <h1>Guess What</h1>
+    <script>
+        
+        let systemNumber = Math.floor(Math.random()*10+1);
+        let responseNumber = 99999
+        while (systemNumber != responseNumber)
+        {
+         responseNumber = prompt("Guess a number 1 to 10" );
+
+        }
+        alert("Lucky Guess")
+
+
+    </script>
+</body>
+</html>

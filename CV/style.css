@@ -1,0 +1,52 @@
+body{ 
+    background-image: url(photo2.jpeg);
+    background-repeat: no-repeat;
+    background-size: cover;
+    font: arial; 
+    font-size: 12px;
+    border:2px solid lightblue;
+}
+td:first-child{
+    color: cornflowerblue;
+    width: 25%;
+    font-size: 12px;
+    text-align: right;
+}
+
+#name {
+    font-size: 1.2em;
+}
+
+.table-heading {
+    color: cornflowerblue;
+    text-align: center;
+    
+}
+ul { list-style-type: none;
+padding: 0;}
+
+.other-languages{
+    text-align: left;
+
+}
+td#cv{
+    color: cornflowerblue;
+    font-size: 12px;
+}
+img#logo{
+    position: absolute;
+    margin-left: 60%;
+}
+
+
+td:first-child{ 
+    width: 30%;
+}
+.table-2 td:first-child{
+    width: 47%;   
+    text-align: right;
+}
+
+.table-2 td{
+    text-align: center;
+}

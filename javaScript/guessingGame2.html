@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Guess the number</title>
+    <style>
+        body{
+            background-image: url(guess.png);
+            
+            background-repeat: no-repeat;
+            background-position: center;
+        
+            height: 100vh;
+            margin: 0;
+        }
+        h1 {
+            margin-top: 0;
+        }
+        
+    </style>
+</head>
+<body>
+    <h1>Guess the number</h1>
+    <p>You can choose any number between 1 and 10. Let's see how many times will it take?</p>
+    <div class="form">
+        <label for="guessNumber">Guess the number</label>
+        <input type="text" id = "guessNumber" class = "guessNumber">
+        <input type="submit" value="Submit Guess" class="submitGuess" id="guessSubmit"> 
+
+
+    </div>
+    <script type="text/javascript">
+        var y = Math.floor(Math.random() * 10 + 1);
+
+
+        var guess = 1;
+
+        document.getElementById("guessSubmit").onclick = function(){ 
+            var x = document.getElementById("guessNumber").value;
+
+            if(x == y)
+            { 
+                alert("CONGRATULTION! YOU GUESSED IT RIGHT IN"
+                 + guess + "GUESS");
+        }
+
+            else if( x > y)
+            { 
+                guess++;
+                alert("OOPS SORRY, TRY A SMALLER NUMBER");
+
+            }
+            else 
+            { guess++;
+                alert("OOPS SOORY!TRY A GREATER NUMBER");
+
+            }
+
+     }
+
+    </script>
+    
+</body>
+</html>
