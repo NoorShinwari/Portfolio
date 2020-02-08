@@ -15,11 +15,12 @@ for(multiplier=1; multiplier<=10; multiplier++)
     {
         line+=('\n')
     }
-    } 
-    
-     
-    console.log('\n')
-
-    console.log(line);     
+} 
 
 }
+console.log(line); 
+console.log(line.length)    
+
+// Tried so many times to comine table4.js with table3.js to achieve the desired results but failed!!!!!!!!!!!!
+// But I will sort it out when I will be a Pro...
+// I wanted to insert the while loop in the for loop for adding the spaces to achieve the results like table5.js.
