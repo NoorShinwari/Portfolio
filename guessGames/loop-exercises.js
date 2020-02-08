@@ -18,9 +18,9 @@ for (i = 2; i < n; i++) {
 */
 let n = 10
 let i = 2
-prime:
+let prime;
 for (i = 2; i < n; i++) {
-    let 
+    
     for (let m =2; m < i-1; m++)  
     {
         if (i % m == 0)continue prime 

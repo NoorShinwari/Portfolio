@@ -23,3 +23,4 @@ for(multiplier=1; multiplier<=10; multiplier++)
     console.log(line);     
 
 }
+// Explained in table5.js also see the comments in table3.js.
