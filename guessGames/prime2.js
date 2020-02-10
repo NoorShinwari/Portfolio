@@ -1,9 +1,11 @@
-var notPrime = false;                       //Then we make a variable called a not prime. 
-    for (var i = 2; i <= counter; i++) {        // then we pick the prime numbers with if inside the for loop;
-        if (counter%i===0 && i!==counter) {     //it means if the counter or number divided by the current generated.. 
-            notPrime = true;                     //.. number is equal to 0 and also not equal to the counter then...  
-        }                                           // .. it is not a prime number.
-    }
-    if (notPrime === false) {                       // if the 
-                console.log(counter);
-    }
+let n = 10;
+
+nextPrime:
+for (let i = 2; i <= n; i++) { // for each i...
+
+  for (let j = 2; j < i; j++) { // look for a divisor..
+    if (i % j == 0) continue nextPrime; // not a prime, go next i
+  }
+
+  console.log(i); // a prime
+}
