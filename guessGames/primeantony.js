@@ -42,23 +42,29 @@ for (let num = 2; num <= Num; num++) {
 }
 */
 
-let card = "Q";
-let value
-switch (card) {
-    case "A":
-        value = 1;
-        break;
-    case "J":
-        value = 11;
-        break;
-    case "Q":
-        value = 12;
-        break;
-    case "K":
-        value = 13;
-        break;
-    default:
-        value = number(card);
+// let card = "Q";
+// let value
+// switch (card) {
+//     case "A":
+//         value = 1;
+//         break;
+//     case "J":
+//         value = 11;
+//         break;
+//     case "Q":
+//         value = 12;
+//         break;
+//     case "K":
+//         value = 13;
+//         break;
+//     default:
+//         value = Number(card);
 
+// }
+// console.log(card,value);
+
+
+//Functions
+function printHello() {
+    console.log("Hello World!");
 }
-console.log(value);
