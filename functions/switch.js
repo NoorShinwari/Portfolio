@@ -20,7 +20,8 @@ switch (browser) {
 let browser;
 if (browser == "Edge") {
     alert("You've got the Edge!")
-} else if (browser == "Chrome" || "Firefox" || "Safari" || "Opera") {
+//} else if (browser == "Chrome" || "Firefox" || "Safari" || "Opera") { // this is wrong because it means that if browser is equal to chrome or string is true;
+} else if (browser == "Chrome" || browser == "Firefox" || browser == "Safari" || browser == "Opera") { //This is the right way..
     alert("okay we support these browsers too")
 } else 
     alert("We hope that this page looks ok!");
@@ -56,3 +57,5 @@ switch (a) {
         alert('2,3');
 
 }
+
+
