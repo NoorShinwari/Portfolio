@@ -106,7 +106,7 @@ function buttonBuild(rows, columns, words) {
     return button;
 }
 
-let button = buttonBuild(5,12,"Shorsh");
+let button = buttonBuild(5,12,"No0r");
 console.log(button);
 
 
