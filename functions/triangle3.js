@@ -4,9 +4,10 @@ function triAngle(height) {
         row = "";
         for (j = 0; j <=(height -i); j++) {
         row += " ";
-        } for (k = 1; k <= i; k++) {
+        } for (k = 0; k <= i; k++) {
             row += "**";
         } console.log(row);
     }
 }
 triAngle(15)
+
