@@ -1,14 +1,14 @@
 // /*
 // function triAngle(height,symbol) {
 //     let row ;
-//     for (let i = 0; i <= height; i++){ 
+//     for (let i = 0; i <= height; i++){
 //         row = "";
 //         for (let j = 0; j <=(height -i); j++) {
 //         row += " ";
-//         }*/ 
+//         }*/
 // function triAngle(height,symbol) {
 //     let row ;
-//     for (i = 0; i <= height; i++){ 
+//     for (i = 0; i <= height; i++){
 //         row = "";
 //         for (j = 0; j <=(height -i); j++) {
 //         row += " ";
@@ -20,7 +20,7 @@
 //         symbol = ""
 //         for (let k = 1; k <= i; k++) {
 //             row += symbol;
-//         } 
+//         }
 //         triAngle(15, "**")
 //         /*        } console.log(row);
 //     }
@@ -33,10 +33,10 @@
 //     for (j = 0; j <=(height -i); j++) {
 //         row += space;
 //     }
-    
+
 //     function triAngle(height) {
 //         let row ;
-//         for (i = 0; i <= height; i++){ 
+//         for (i = 0; i <= height; i++){
 //             row = "";
 //             for (j = 0; j <=(height -i); j++) {
 //                 row += " ";
