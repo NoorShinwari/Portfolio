@@ -1,6 +1,6 @@
 console.log(`****H-E-X-A-G-O-N****`);
 
-let height = 5;
+let height = 7;
 
 for (let i = 1; i <= height; i++) {
   let line = '';
@@ -14,7 +14,7 @@ for (let i = 1; i <= height; i++) {
 
   console.log(line);
 }
-for (let i = 1; i <= height - 1; i++) {
+for (let i = 1; i < height; i++) {
   let line = '';
   for (let m = height + 1; m <= height + i; m++) {
     line += ' ';

@@ -17,4 +17,4 @@ let toKebabCase = function(str) {
 };
 // OR//
 let toKebabCase = str => _.kebabCase(str)*/
-let toKebabCase = _.kebabCase; // It is only for the reference. so whatever the value_.kebabCase will have, it will be assigned to the let.
+// let toKebabCase = _.kebabCase; // It is only for the reference. so whatever the value_.kebabCase will have, it will be assigned to the let.
