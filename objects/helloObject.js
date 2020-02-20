@@ -29,16 +29,16 @@ schedule["8:30"] = "get up";
 alert( isEmpty(schedule) ); // false
 Open a sandbox with tests.
 
-let obj = {};
-function isEmpty(obj) {
-  for (let key in obj) {
-    return false;
-  }
-  return true;
-}
-
-/*
-Constant objects?
+let obj = {};                                             |_____________________________________________
+function isEmpty(obj) {                             //////|function isEmpty(obj) {                      \
+  for (let key in obj) {                            //////|  let isEmpty = true;                         \
+    return false;                                   //////|  for (let key in obj) {                       \
+  }                                                 //////|    console.log("Hey we've got a key", key)     \
+  return true;                                      //////|    isEmpty = false;                            /
+}                                                   //////|   };                                          /         
+                                                    //////|   return isEmpty                             /
+/*                                                  //////|};                                           /
+Constant objects?                                         |____________________________________________/
 importance: 5
 Is it possible to change an object declared with const? What do you think?
 const user = {
