@@ -6,7 +6,7 @@
 
 let todos = [
   { id: 1, text: 'Learn JavaScript', completed: true },
-  { id: 2, text: 'Seek fo a job', completed: false },
+  { id: 2, text: 'Seek for a job', completed: false },
   { id: 3, text: 'Forget everything' }
 ];
 
@@ -20,16 +20,31 @@ let todos = [
 //     return html
 // }
 // instead of this we do as following
-function showTodos() {
-  //1. loop over all the todos
-  //2. for everz todo:
-  // 1. create '<li>¼{todo.text}</li>`
-  // 2. concatenate to the html
-  let html = `
-    <ul>
-        ${todos.map(todo => {
-          return `<li>${todo.text}</li>`;
-        })}
-    </ul>`;
-  return html;
+function render() {
+  document.querySelector('ul').innerHTML = todos
+    .map(
+      todo => `<li class="${todo.completed ? 'done' : ''}">${todo.text}</li>`
+    )
+    .join('');
 }
+render();
+
+document.querySelector('form').onsubmit = function(event) {
+  event.preventDefault();
+  let id = generatedId();
+  let text = document.querySelector('input').value;
+  let completed = document.querySelector();
+  let todo = { id, text };
+  todos.push(todo);
+  document.querySelector('input').value = '';
+  render();
+};
+//
+function generatedId() {
+  return todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
+}
+
+//////////////OR////////////////////////
+/// function generatedId() {
+// return !todos.length ? 1 : todos[todos.length - 1].id + 1;
+//};
