@@ -23,7 +23,10 @@ let todos = [
 function render() {
   document.querySelector('ul').innerHTML = todos
     .map(
-      todo => `<li class="${todo.completed ? 'done' : ''}">${todo.text}</li>`
+      (todo, index) => `<li class="${todo.completed ? 'done' : ''}">
+      <button onclick="handleRemove(${index})">x</button>
+      <span onclick="handleToggle(${index})">${todo.text}</span>
+      </li>`
     )
     .join('');
 }
@@ -42,6 +45,15 @@ document.querySelector('form').onsubmit = function(event) {
 //
 function generatedId() {
   return todos.length === 0 ? 1 : todos[todos.length - 1].id + 1;
+}
+
+function handleRemove(index) {
+  todos.splice(index, 1);
+  render();
+}
+function handleToggle(index) {
+  todos[index].completed = !todos[index].completed;
+  render();
 }
 
 //////////////OR////////////////////////
