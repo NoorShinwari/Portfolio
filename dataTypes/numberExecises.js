@@ -22,9 +22,10 @@ Run the demo
 Open a sandbox with tests. */
 
 function readNumber() {
-  let number = +prompt('Enter a number Please');
+  let number;
   while (isFinite(number)) {
-    if (number === '' || number === null || !number) {
+    number = +prompt('Enter a number Please');
+    if (number === '' || number === null || !isFinite(number)) {
       return null;
     }
   }
