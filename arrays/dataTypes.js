@@ -20,7 +20,7 @@ P.S. Hint: use split to split the string into an array, transform it and join ba
 
 // console.log(str.test);
 
-
+/*
 Sum numbers from the visitor
 importance: 5
 Create a script that prompts the visitor to enter two numbers and then shows their sum.
@@ -28,7 +28,7 @@ Create a script that prompts the visitor to enter two numbers and then shows the
 Run the demo
 
 P.S. There is a gotcha with types.
-
+*/
 function sum(a,b) {
     this.a = +prompt("Enter 1st number?"),
     this.b = +prompt("Enter second number?"),
