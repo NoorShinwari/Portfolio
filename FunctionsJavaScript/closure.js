@@ -186,5 +186,85 @@ function inArray(arr) {
   return function(x) {
     return arr.includes(x);
   };
-}
+} // THIS IS VERY CHANLLANGING!!!!!!!!!!!! ////LET'S TRY/////////
 // I am starting to understand it already, Yuhooooooo!!!!!!!!!
+
+/*Sort by field
+importance: 5
+We’ve got an array of objects to sort:
+
+let users = [
+  { name: "John", age: 20, surname: "Johnson" },
+  { name: "Pete", age: 18, surname: "Peterson" },
+  { name: "Ann", age: 19, surname: "Hathaway" }
+];
+The usual way to do that would be:
+
+// by name (Ann, John, Pete)
+users.sort((a, b) => a.name > b.name ? 1 : -1);
+
+// by age (Pete, Ann, John)
+users.sort((a, b) => a.age > b.age ? 1 : -1);
+Can we make it even less verbose, like this?
+
+users.sort(byField('name'));
+users.sort(byField('age'));
+So, instead of writing a function, just put byField(fieldName).
+
+Write the function byField that can be used for that. */ function byField(
+  fieldName
+) {
+  return (a, b) => (a[fieldName] > b[fieldName] ? 1 : -1);
+}
+//// if a > b then return 1, if b > a then -1, if a=b then 0.
+
+/*Army of functions
+importance: 5
+The following code creates an array of shooters.
+
+Every function is meant to output its number. But something is wrong…
+
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+    let shooter = function() { // shooter function
+      alert( i ); // should show its number
+    };
+    shooters.push(shooter);
+    i++;
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+
+army[0](); // the shooter number 0 shows 10
+army[5](); // and number 5 also outputs 10...
+// ... all shooters show 10 instead of their 0, 1, 2, 3...
+Why do all of the shooters show the same value? Fix the code so that they work as intended. */
+
+function makeArmy() {
+  let shooters = [];
+
+  let i = 0;
+  while (i < 10) {
+    let j = i;
+    let shooter = function() {
+      // shooter function
+      alert(j); // should show its number
+    };
+    shooters.push(shooter);
+    i++;
+  }
+
+  return shooters;
+}
+
+let army = makeArmy();
+///Or i can use the for method.
+// the answer in the question didnt work because of the variable declared out side the function,
+// shooter has no local variable so it will take the value of outer variable, which by the time
+// when makeArmy will execute will hava a value of 10, so we need to declare a local variable
