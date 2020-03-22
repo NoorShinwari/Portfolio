@@ -66,3 +66,107 @@ let sportsCar = new Car()
   .setTopSpeed(250)
   .setFeulCapacity('600 Litres')
   .displayCarProps();
+
+////////////////////////////////////////////////////////////////////////////
+class ChainAble {
+  firstMethod() {
+    console.log('This is the First Method');
+    return this;
+  }
+
+  secondMethod() {
+    console.log('This is the Second Method');
+    return this;
+  }
+
+  thirdMethod() {
+    console.log('This is the Third Method');
+    return this;
+  }
+}
+
+const chainableInstance = new ChainAble();
+chainableInstance
+  .firstMethod()
+  .secondMethod()
+  .thirdMethod();
+
+//////////////////////////////////////////////////////////////////////////////
+class Arithmetic {
+  constructor() {
+    this.value = 0;
+  }
+  sum(...args) {
+    this.value = args.reduce((sum, current) => sum + current, 0);
+    return this;
+  }
+  add(value) {
+    this.value = this.value + value;
+    return this;
+  }
+  subtract(value) {
+    this.value = this.value - value;
+    return this;
+  }
+  average(...args) {
+    this.value = args.length
+      ? this.sum(...args).value / args.length
+      : undefined;
+    return this;
+  }
+}
+let a = new Arithmetic();
+a
+  .sum(1, 3, 6) // => { value: 10 }
+  .subtract(3) // => { value: 7 }
+  .add(4).value; // => { value: 11 } // => 11
+////////////////////////////////////////////////////77777
+
+class Arithmetic {
+  // add getter for value
+  get val() {
+    return this.value;
+  }
+
+  // rest of the code truncated for clarity
+}
+
+a = new Arithmetic();
+a
+  .sum(1, 3, 6) // => { value: 10 }
+  .subtract(3) // => { value: 7 }
+  .add(4).val; // => { value: 11 } // <== read the result of the computation
+
+/////////////////////////////////////////////////////////////////////7
+class Arithmetic {
+  constructor() {
+    this.value = 0;
+  }
+  get val() {
+    return this.value;
+  }
+  sum(...args) {
+    this.value = args.reduce((sum, current) => sum + current, 0);
+    return this;
+  }
+  add(value) {
+    this.value += value;
+    return this;
+  }
+  subtract(value) {
+    this.value -= value;
+    return this;
+  }
+  average(...args) {
+    this.value = args.length
+      ? this.sum(...args).value / args.length
+      : undefined;
+    return this;
+  }
+}
+
+let a = new Arithmetic();
+a
+  .sum(1, 3, 6) // => { value: 10 }
+  .subtract(3) // => { value: 7 }
+  .add(4).val; // => { value: 11 } // => 11
