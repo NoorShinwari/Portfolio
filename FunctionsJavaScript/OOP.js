@@ -138,3 +138,17 @@ let person1 = new Person('Tammi', 'Smith', 32, 'neutral', [
   'skiing',
   'kickboxing'
 ]);
+
+///THE OBJECT CONSTUCTOR
+let person1 = new Object({
+  name: 'Chris',
+  age: 38,
+  greeting: function() {
+    alert("Hi! I'm " + this.name + '.');
+  }
+});
+
+//// Using the create() method;
+let person2 = Object.create(person1);
+person2.name;
+person2.greeting();
