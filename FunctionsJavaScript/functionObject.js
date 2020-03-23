@@ -169,5 +169,34 @@ function sum(a) {
   let currentSum = a;
   function f(b) {
     currentSum += b;
+    return f;
   }
+  f.toString = function() {
+    return currentSum;
+  };
+  return f;
 }
+/**Please note that the sum function actually works only once.
+ *  It returns function f.
+
+Then, on each subsequent call,
+ f adds its parameter to the sum currentSum, and returns itself.
+
+There is no recursion in the last line of f.
+
+Here is what recursion looks like:*/
+
+function f(b) {
+  currentSum += b;
+  return f(); // <-- recursive call
+}
+//And in our case, we just return the function, without calling it:
+
+function f(b) {
+  currentSum += b;
+  return f; // <-- does not call itself, returns itself
+}
+/*This f will be used in the next call, again return itself,
+ so many times as needed. 
+ Then, when used as a number or a string – the toString returns the currentSum.
+ We could also use Symbol.toPrimitive or valueOf here for the conversion. */
