@@ -45,17 +45,24 @@ const results = [
   }
 ];
 
-const average = item =>
-  item.scores.reduce((a, b) => a + b, 0) / item.scores.length; //const average = students.map(item => item.scores.reduce((a, b) => a + b, 0) / item.scores.length);
-const lessAge = item => item.age < 35; //const lessAge = students.filter(item => item.age < 35); //
-const order = (a, b) => b.scores - a.scores; //const order = sort((a, b) => b.scores - a.scores);
+const lessAge = item => item.age < 35;
+const average = item => ({
+  name: item.name,
+  averageScore: item.scores.reduce((a, b) => a + b, 0) / item.scores.length
+});
+const order = (a, b) => b.averageScore - a.averageScore;
 
 function averAge(array) {
-  let arr = array.filter(lessAge).map(average);
+  let arr = array
+    .filter(lessAge)
+    .map(average)
+    .sort(order);
+
   return arr;
 }
 
-students.map(
-  (item, index, array) =>
-    item.scores.reduce((a, b) => a + b, 0) / students.length
-);
+// const average = item =>
+//   item.scores.reduce((a, b) => a + b, 0) / item.scores.length; //const average = students.map(item => item.scores.reduce((a, b) => a + b, 0) / item.scores.length);
+// const lessAge = item => item.age < 35; //const lessAge = students.filter(item => item.age < 35); //
+// const order = (a, b) => b.scores - a.scores; //const order = sort((a, b) => b.scores - a.scores);
+// this is how i was trying................
