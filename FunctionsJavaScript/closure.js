@@ -109,6 +109,7 @@ if (true) {
 
 sayHi();
 // ERROR because sayHi() is a function inside the paranthesis of if and is not accessable outside.
+////NO, It is not, I tried it myself and it works just fine....
 
 /*Sum with closures
 importance: 4
