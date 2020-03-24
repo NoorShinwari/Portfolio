@@ -60,6 +60,7 @@ function averAge(array) {
 
   return arr;
 }
+console.log(averAge(students)); ///for node...
 
 // const average = item =>
 //   item.scores.reduce((a, b) => a + b, 0) / item.scores.length; //const average = students.map(item => item.scores.reduce((a, b) => a + b, 0) / item.scores.length);
