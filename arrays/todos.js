@@ -36,7 +36,7 @@ document.querySelector('form').onsubmit = function(event) {
   event.preventDefault();
   let id = generatedId();
   let text = document.querySelector('input').value;
-  let completed = document.querySelector();
+
   let todo = { id, text };
   todos.push(todo);
   document.querySelector('input').value = '';
