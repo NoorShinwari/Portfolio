@@ -177,3 +177,38 @@ let longEar = {
 };
 
 longEar.eat(); // Long Ear eats...
+
+////////////////////////////////////////////////////////////////////7
+//////////////////////////Methods are not "free"////////////////////7
+/**Functions are free, not bound to objects in JavaScript.
+ * So they can be copied between objects and called with another this.
+ * The very Existence of [[HomeObject]] violates that principle, because
+ * methoths remember their objects.
+ * the only place in language where [[HomeObject]] is used - is super.
+ */
+
+let animal = {
+  sayHi() {
+    console.log("I'm an animal");
+  }
+};
+
+let rabbit = {
+  __proto__: animal,
+  sayHi() {
+    super.sayHi();
+  }
+};
+let plant = {
+  sayHi() {
+    console.log("I'm al plant");
+  }
+};
+let tree = {
+  __proto__: plant,
+  sayHi: rabbit.sayHi //
+};
+tree.sayHi();
+
+////////////////////////////////////////////////////////////////////////////////////
+//////////////////////////////////////////////////////////////////
