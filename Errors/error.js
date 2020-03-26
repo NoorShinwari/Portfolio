@@ -227,6 +227,45 @@ try {
   if (e.name == 'SyntaxError') {
     alert('JSON Error: ' + e.message);
   } else {
-    throw e;
+    throw e; //*
   }
 }
+
+/**he error throwing on line (*) from inside catch block “falls out” of try..catch
+ *  and can be either caught by an outer try..catch construct (if it exists), or it kills the script.
+
+So the catch block actually handles only errors that it knows how to deal with and “skips” all others.
+
+The example below demonstrates how such errors can be caught by one more level of try..catch: */
+
+function readData() {
+  let json = '{ "age" : 30}';
+  try {
+    //..
+    blablabla();
+  } catch (e) {
+    if (e.name != 'SyntaxError') {
+      throw e;
+    }
+  }
+}
+
+try {
+  readData();
+} catch (e) {
+  alert('External catch got: ' + e);
+}
+
+//______________________________________________________________________________________
+//_________________________________________________________________________________________________
+// try...catch...finally:
+
+try {
+  alert('try');
+  if (confirm('Make an error?')) BAD_CODE();
+} catch (e) {
+  alert('catch');
+} finally {
+  alert('finally');
+}
+/////////////////////////////////////////////////////////////////////////////////////////7
