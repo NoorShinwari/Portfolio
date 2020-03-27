@@ -1,15 +1,16 @@
+//triangle exercise
 function triAngle(height) {
   let row;
-  let tot = "";
+  let tot = '';
   for (i = 0; i <= height; i++) {
-    row = "";
+    row = '';
     for (j = 0; j <= height - i; j++) {
-      row += " ";
+      row += ' ';
     }
     for (k = 0; k <= i; k++) {
-      row += "**";
+      row += '**';
     }
-    tot += row + "\n";
+    tot += row + '\n';
   }
   return tot;
 }
