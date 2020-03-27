@@ -1,3 +1,4 @@
+//Hexagon with for loop
 console.log(`****H-E-X-A-G-O-N****`);
 
 let height = 7;
