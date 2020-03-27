@@ -1,45 +1,33 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-   
+  <head>
     <title>Document</title>
-</head>
-<body>
-    
+  </head>
+  <body>
+    <!--While loop prompt-->
 
-
-
-<script>
-
-
-      let  attempt = 0;
+    <script>
+      let attempt = 0;
       {
         const numbr = Math.floor(Math.random() * 10 + 1);
-let running = true
+        let running = true;
 
-do {
-    
-    let guess = prompt("Attempt number is "+attempt+" Enter numbr" )
-    if (guess == numbr) {
-        alert("Congratulation, " + numbr + " was the correct number")
-        ++attempt;
-        running = false
-        
-    } else if (guess == "exit") {
-        alert("Bye bye")
-        ++attempt;
-        running = false
-       
-    } else {
-        ++attempt;
-        alert(guess + " is the wrong number, try again")
-        
-    }
-    
-} while(attempt!==3) 
-
-}
-</script>
-</body>
+        do {
+          let guess = prompt('Attempt number is ' + attempt + ' Enter numbr');
+          if (guess == numbr) {
+            alert('Congratulation, ' + numbr + ' was the correct number');
+            ++attempt;
+            running = false;
+          } else if (guess == 'exit') {
+            alert('Bye bye');
+            ++attempt;
+            running = false;
+          } else {
+            ++attempt;
+            alert(guess + ' is the wrong number, try again');
+          }
+        } while (attempt !== 3);
+      }
+    </script>
+  </body>
 </html>
-
