@@ -4,12 +4,12 @@ importance: 2
 What is the result of this code?
 */
 let user = {
-  name: "John",
-  go: function() { alert(this.name) }
-}
-
-(user.go)()
-P.S. There’s a pitfall :)
+  name: 'John',
+  go: function() {
+    alert(this.name);
+  }
+}(user.go)();
+//P.S. There’s a pitfall :)
 
 /////////// The answer of this code is => John
 /*
@@ -44,15 +44,14 @@ What is the result of accessing its ref? Why?
 */
 function makeUser() {
   return {
-    name: "John",
+    name: 'John',
     ref: this
   };
-};
+}
 
 let user = makeUser();
 
-alert( user.ref.name ); // What's the result?
-solution
+alert(user.ref.name); // What's the result?
 
 /*
 Create a calculator
