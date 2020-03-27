@@ -1,3 +1,4 @@
+// triangle with my own method
 function triAngle(height) {
   // we Will be using four loops for this triangle, bear with me please!!
 
