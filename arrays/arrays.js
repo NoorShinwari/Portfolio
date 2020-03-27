@@ -9,10 +9,10 @@ mul() multiplies saved values and returns the result.
 let calculator = {
   // ... your code ...
 };
-
+*/
 calculator.read();
-alert( calculator.sum() );
-alert( calculator.mul() );*/
+alert(calculator.sum());
+alert(calculator.mul());
 
 let calculator = {
   sum() {
