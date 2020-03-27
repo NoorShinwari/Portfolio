@@ -1,4 +1,4 @@
-//Guess game
+//Guess game using while loop
 const numbr = Math.floor(Math.random() * 10 + 1);
 let running = true;
 
