@@ -12,13 +12,13 @@ camelize("list-style-image") == 'listStyleImage';
 camelize("-webkit-transition") == 'WebkitTransition';
 P.S. Hint: use split to split the string into an array, transform it and join back.
 */
-// let str = 'Hello';
-// let str2 = str.toUpperCase(str);
-// console.log(str2);
+let str = 'Hello';
+let str2 = str.toUpperCase(str);
+console.log(str2);
 
-// str.test = 5;
+str.test = 5;
 
-// console.log(str.test);
+console.log(str.test);
 
 /*
 Sum numbers from the visitor
