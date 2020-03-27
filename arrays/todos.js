@@ -19,7 +19,7 @@ let todos = [
 //     </ul>`
 //     return html
 // }
-// instead of this we do as following
+// instead of this we do as following//
 function render() {
   document.querySelector('ul').innerHTML = todos
     .map(
