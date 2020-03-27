@@ -1,3 +1,4 @@
+// triangle by Mr Patrick
 const printMultiple = (n, c) => {
   let res = '';
   for (let i = 0; i < n; i++) {
