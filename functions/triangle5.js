@@ -1,3 +1,4 @@
+// triangle loop by IT trainer
 let height = 15;
 function line(space, stars) {
   let row = '';
