@@ -29,19 +29,16 @@ Run the demo
 
 P.S. There is a gotcha with types.
 */
-function sum(a,b) {
-    this.a = +prompt("Enter 1st number?"),
-    this.b = +prompt("Enter second number?"),
-    return this.a + this.b
+function sum(a, b) {
+  this.a = +prompt('Enter 1st number?');
+  this.b = +prompt('Enter second number?');
+  return this.a + this.b;
 }
 
-
-
-function sum(a,b) {
-    
-    this.a = +prompt("Enter 1st number?")
-    this.b = +prompt("Enter second number?")
-    let sum = this.a + this.b
-    alert(sum)
+function sum(a, b) {
+  this.a = +prompt('Enter 1st number?');
+  this.b = +prompt('Enter second number?');
+  let sum = this.a + this.b;
+  alert(sum);
 }
-sum()
+sum();
