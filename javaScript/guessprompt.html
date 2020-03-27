@@ -1,29 +1,25 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <head>
+    <!--guess game prompt-->
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
     <title>guess prompt</title>
-</head>
-<body>
+  </head>
+  <body>
     <h1>Guess What</h1>
     <script>
-        let systemNumber = Math.floor(Math.random()*10+1);
-        
-        let guessNumber = prompt("Guess a number");
-        if (guessNumber == systemNumber )
-        {
-            alert(`Your guess ${guessNumber}number is correct`);
-        }
-        else 
-        {
-            alert(`Your Guess ${guessNumber} is incorrect. Correct number is ${systemNumber}`);
-        }
+      let systemNumber = Math.floor(Math.random() * 10 + 1);
 
-
-
-
+      let guessNumber = prompt('Guess a number');
+      if (guessNumber == systemNumber) {
+        alert(`Your guess ${guessNumber}number is correct`);
+      } else {
+        alert(
+          `Your Guess ${guessNumber} is incorrect. Correct number is ${systemNumber}`
+        );
+      }
     </script>
-</body>
+  </body>
 </html>
