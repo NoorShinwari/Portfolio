@@ -24,6 +24,7 @@ function checkAge(age) {
 Is there any difference in the behavior of these two variants?
 */
 ///////////////////////////////////////////NO DIFFERENCE////////////////////////////////////////////////
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 /*
 Rewrite the function using '?' or '||'
 
@@ -47,13 +48,12 @@ Using OR ||
 */
 
 function checkAge(age) {
-    return (age > 18) ? true: confirm('Did parents allow you?');
-} 
+  return age > 18 ? true : confirm('Did parents allow you?');
+}
 ///////////////////////OR////////////////////////////
 function checkAge(age) {
-    return (age > 18) || confirm ('Did parents allow you?');
+  return age > 18 || confirm('Did parents allow you?');
 }
-
 
 //////////////////////////////Turn it into a function//////////////////////////////////
 /*
@@ -74,24 +74,26 @@ switch (browser) {
 }
 */
 ////HERE WE GO:
-function detectBrowser(browser) { // We turn it into a function by adding fuction then any name but camelCase, parathesis, inside paranthesis
-  switch (browser) {                  //..... declare a default value of browser then middle bracket start, code inside then at the end '}'closes.
-    case "Edge":
-        alert("You've got the Edge!");
-        break;
+function detectBrowser(browser) {
+  // We turn it into a function by adding fuction then any name but camelCase, parathesis, inside paranthesis
+  switch (
+    browser //..... declare a default value of browser then middle bracket start, code inside then at the end '}'closes.
+  ) {
+    case 'Edge':
+      alert("You've got the Edge!");
+      break;
 
-    case "Chrome":
-    case "Firefox":
-    case "Safari":
-    case "Opera":
-        alert("okay we support these browsers too");
-        break;
+    case 'Chrome':
+    case 'Firefox':
+    case 'Safari':
+    case 'Opera':
+      alert('okay we support these browsers too');
+      break;
 
     default:
-        alert("We hope that this page looks ok!")
+      alert('We hope that this page looks ok!');
   }
 }
-
 
 /*
 Function pow(x,n)
@@ -108,10 +110,9 @@ Run the demo
 P.S. In this task the function should support only natural values of n: integers up from 1.
 */
 
-function pow(x,n){
-  return x**n
+function pow(x, n) {
+  return x ** n;
 }
-
 
 /*
 
@@ -131,19 +132,17 @@ given the amount of damage you inflict to enemies,
  Hint: use the switch statement.
 */
 
-
-function rank(number) { 
-  
+function rank(number) {
   switch (number) {
     case 1:
-      return ("Dull!");
+      return 'Dull!';
     case 5:
-      return ("Cool!");
+      return 'Cool!';
     case 10:
-      return ("Bravo!");
+      return 'Bravo!';
     case 15:
-      return ("Awesome!");
+      return 'Awesome!';
     case 20:
-      return ("Stylish");
+      return 'Stylish';
   }
 }
