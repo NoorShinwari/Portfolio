@@ -2,7 +2,7 @@
 Syntax check
 importance: 2
 What is the result of this code?
-
+*/
 let user = {
   name: "John",
   go: function() { alert(this.name) }
@@ -10,10 +10,8 @@ let user = {
 
 (user.go)()
 P.S. There’s a pitfall :)
-*/
-/////////// The answer of this code is => John///////////////OOOOPPPS sorry i was wrong, on line 9 semicolon is missing.
-//////////////////all is good, just line 9 after the curly braces a semicolon;
 
+/////////// The answer of this code is => John
 /*
 Explain the value of "this"
 importance: 3
@@ -43,6 +41,7 @@ Here the function makeUser returns an object.
 
 What is the result of accessing its ref? Why?
 
+*/
 function makeUser() {
   return {
     name: "John",
@@ -54,7 +53,7 @@ let user = makeUser();
 
 alert( user.ref.name ); // What's the result?
 solution
-*/
+
 /*
 Create a calculator
 importance: 5
