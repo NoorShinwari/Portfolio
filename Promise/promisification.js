@@ -128,3 +128,12 @@ function promisify(f, manyArgs = false) {
 function test(a, b) {
   console.log(`Hello world! a:${a} b:${b}`);
 }
+let f = promisify(test, true);
+f('Canada', 'Finland').then(
+  arrayOfResults => {
+    console.log('arrayOfResults:', arrayOfResults);
+  },
+  err => {
+    console.log('err:', err);
+  }
+);
