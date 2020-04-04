@@ -18,7 +18,7 @@ class Persons extends Component {
   }
 
   getSnapshotBeforeUpdate(prevProps, prevState) {
-    console.log('[Person.jsx] getSnapshotBeforeUpdate');
+    console.log('[Persons.jsx] getSnapshotBeforeUpdate');
     return { messege: 'snapshot!' };
   }
 
@@ -27,8 +27,11 @@ class Persons extends Component {
   //}
 
   componentDidUpdate(prevProps, prevState, snapshot) {
-    console.log('[Person.jsx] componentDidUpdate');
+    console.log('[Persons.jsx] componentDidUpdate');
     console.log(snapshot);
+  }
+  componentWillUnmount() {
+    console.log('[Persons.jsx] componentWillUnmount');
   }
 
   render() {

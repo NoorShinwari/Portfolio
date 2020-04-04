@@ -9,8 +9,18 @@ const Cockpit = (props) => {
     setTimeout(() => {
       alert('Saved data to cloud!');
     }, 1000);
+    return () => {
+      console.log('[Cockpit.jsx] cleanup work in useEffect');
+    };
   }, []); //[props.persons] if we want to run this when only something changes in persons
   //an Empty array says react that this no dependency and it should rerun when dependency changes
+
+  useEffect(() => {
+    console.log('[Cockpit.jsx] 2nd useEffect');
+    return () => {
+      console.log('[Cockpit.jsx] cleanup work in 2nd useEffect');
+    };
+  });
   const assignClasses = [];
   let btnClasses = '';
   if (props.showPersons) {
