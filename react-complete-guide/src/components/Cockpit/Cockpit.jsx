@@ -1,8 +1,16 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 
 import classes from './Cockpit.module.css';
 
-const cockpit = props => {
+const Cockpit = (props) => {
+  useEffect(() => {
+    console.log('[Cockpit.jsx] useEffect');
+    //Http request
+    setTimeout(() => {
+      alert('Saved data to cloud!');
+    }, 1000);
+  }, []); //[props.persons] if we want to run this when only something changes in persons
+  //an Empty array says react that this no dependency and it should rerun when dependency changes
   const assignClasses = [];
   let btnClasses = '';
   if (props.showPersons) {
@@ -26,4 +34,4 @@ const cockpit = props => {
   );
 };
 
-export default cockpit;
+export default Cockpit;
