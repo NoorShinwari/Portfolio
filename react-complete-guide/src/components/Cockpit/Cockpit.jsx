@@ -6,11 +6,10 @@ const Cockpit = (props) => {
   useEffect(() => {
     console.log('[Cockpit.jsx] useEffect');
     //Http request
-    const timer = setTimeout(() => {
+    setTimeout(() => {
       alert('Saved data to cloud!');
     }, 1000);
     return () => {
-      clearTimeout(timer);
       console.log('[Cockpit.jsx] cleanup work in useEffect');
     };
   }, []); //[props.persons] if we want to run this when only something changes in persons
