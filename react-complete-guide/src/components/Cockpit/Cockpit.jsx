@@ -1,9 +1,11 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useContext } from 'react';
 
 import classes from './Cockpit.module.css';
 import AuthContext from '../../context/auth-context';
+import authContext from '../../context/auth-context';
 const Cockpit = (props) => {
   const toggleBtnRef = useRef(null);
+  const authContext = useContext(AuthContext);
   useEffect(() => {
     console.log('[Cockpit.jsx] useEffect');
     //Http request
@@ -16,7 +18,7 @@ const Cockpit = (props) => {
     };
   }, []); //[props.persons] if we want to run this when only something changes in persons
   //an Empty array says react that this no dependency and it should rerun when dependency changes
-
+  console.log(authContext.authenticated);
   useEffect(() => {
     console.log('[Cockpit.jsx] 2nd useEffect');
     return () => {
@@ -42,9 +44,8 @@ const Cockpit = (props) => {
       <button ref={toggleBtnRef} className={btnClasses} onClick={props.clicked}>
         Toggle Persons
       </button>
-      <AuthContext.Consumer>
-        {(context) => <button onClick={context.login}>Log in</button>}
-      </AuthContext.Consumer>
+
+      <button onClick={authContext.login}>Log in</button>
     </div>
   );
 };
