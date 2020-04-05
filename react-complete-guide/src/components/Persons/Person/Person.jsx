@@ -10,7 +10,7 @@ class Person extends Component {
     return (
       // <div className="Person" style={style}>
       // <div className={classes.Person}>
-      <Aux>
+      <Aux classes={classes.Person}>
         <p onClick={this.props.click}>
           I'm {this.props.name} and I am {this.props.age} years old!
         </p>
