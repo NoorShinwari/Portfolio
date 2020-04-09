@@ -17,7 +17,9 @@ class MyApp extends StatefulWidget {
 class MyAppState extends State<MyApp> {
   var questionIndex = 0;
   void answerQuestion() {
-    setState(() {});
+    setState(() {
+      questionIndex = questionIndex + 1;
+    });
     print(questionIndex);
   }
 
