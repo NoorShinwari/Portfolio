@@ -1,14 +1,14 @@
-import 'package:flutter/material.dart';
 import 'package:firebase_auth/firebase_auth.dart';
+import 'package:flutter/material.dart';
+import 'package:sign_in/Setup/signIn.dart';
 
-import 'Pages/home.dart';
-
-class LoginPage extends StatefulWidget {
+class SignUpPage extends StatefulWidget {
   @override
-  _LoginPageState createState() => new _LoginPageState();
+  _SignUpPageState createState() => _SignUpPageState();
 }
 
-class _LoginPageState extends State<LoginPage> {
+class _SignUpPageState extends State<SignUpPage> {
+  @override
   String _email, _password, _dateOfBirth;
   final GlobalKey<FormState> _formKey = GlobalKey<FormState>();
   @override
@@ -41,27 +41,40 @@ class _LoginPageState extends State<LoginPage> {
                     decoration: InputDecoration(
                         prefixIcon: Icon(Icons.lock), labelText: 'password'),
                     obscureText: true),
+                TextFormField(
+                  validator: (input) {
+                    if (input.isEmpty) {
+                      return 'This field cannot be empty!';
+                    }
+                  },
+                  onSaved: (input) => _dateOfBirth = input,
+                  decoration: InputDecoration(
+                      prefixIcon: Icon(Icons.calendar_today),
+                      labelText: 'Date of birth'),
+                ),
                 RaisedButton(
-                  onPressed: signIn,
-                  child: Text('Sign in'),
+                  onPressed: signUp,
+                  child: Text('Sign up'),
                 )
               ],
             )));
   }
 
-  Future<void> signIn() async {
+  Future<void> signUp() async {
     if (_formKey.currentState.validate()) {
       _formKey.currentState.save();
-      try {
-        FirebaseUser user = (await FirebaseAuth.instance
-                .signInWithEmailAndPassword(email: _email, password: _password))
-            .user;
-
-        Navigator.push(
-            context, MaterialPageRoute(builder: (context) => Home(user: user)));
-      } catch (e) {
-        print(e.messege);
-      }
+    }
+    try {
+      FirebaseUser user = (await FirebaseAuth.instance
+              .createUserWithEmailAndPassword(
+                  email: _email, password: _password))
+          .user;
+      user.sendEmailVerification();
+      Navigator.of(context).pop();
+      Navigator.pushReplacement(
+          context, MaterialPageRoute(builder: (context) => LoginPage()));
+    } catch (e) {
+      print(e.messege);
     }
   }
 }
