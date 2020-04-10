@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "892214175573",
+    "firebase_url": "https://firstsigninappfirefox.firebaseio.com",
+    "project_id": "firstsigninappfirefox",
+    "storage_bucket": "firstsigninappfirefox.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:892214175573:android:660ff9af12af87390931dc",
+        "android_client_info": {
+          "package_name": "com.example.sign_in"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "892214175573-vvuqfivd4tsi3i81hhnuqr3aumvun97p.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAH30CoHvpXVE5GyNjIl4sy2yPKr3FB3-I"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "892214175573-vvuqfivd4tsi3i81hhnuqr3aumvun97p.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
