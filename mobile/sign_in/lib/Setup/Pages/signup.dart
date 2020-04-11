@@ -65,12 +65,9 @@ class _SignUpPageState extends State<SignUpPage> {
       _formKey.currentState.save();
     }
     try {
-      FirebaseUser user = (await FirebaseAuth.instance
-              .createUserWithEmailAndPassword(
-                  email: _email, password: _password))
-          .user;
-      user.sendEmailVerification();
-      Navigator.of(context).pop();
+      await FirebaseAuth.instance
+          .createUserWithEmailAndPassword(email: _email, password: _password);
+
       Navigator.pushReplacement(
           context, MaterialPageRoute(builder: (context) => LoginPage()));
     } catch (e) {
