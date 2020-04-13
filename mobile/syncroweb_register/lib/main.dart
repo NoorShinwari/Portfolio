@@ -123,7 +123,9 @@ class _MyHomePageState extends State<MyHomePage> {
                   new Container(
                       padding: const EdgeInsets.only(left: 40.0, top: 20.0),
                       child: new RaisedButton(
-                        child: const Text('Register'),
+                        child: const Text('Register',
+                            style: TextStyle(color: Colors.white)),
+                        color: Colors.blue,
                         onPressed: _register,
                       )),
                 ],
