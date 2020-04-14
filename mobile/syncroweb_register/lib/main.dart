@@ -106,7 +106,7 @@ class _MyHomePageState extends State<MyHomePage> {
                         labelText: 'Date of birth',
                       ),
                       controller: _controller,
-                      keyboardType: TextInputType.datetime,
+                     
                       onSaved: (String input) => dateOfBirth = input,
                       validator: (val) => val.isEmpty
                           ? 'This field cannot be empty'
