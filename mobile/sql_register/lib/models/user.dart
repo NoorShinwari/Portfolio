@@ -1,22 +1,20 @@
 class User {
-  int _id;
-  String _username;
-  String _password;
+  int id;
+  String name;
+  String email;
+  String password;
 
-  User(this._username, this._password);
+  User({this.id, this.name, this.email, this.password});
 
-  User.fromMap(dynamic obj) {
-    this._username = obj['username'];
-    this._password = obj['password'];
-  }
+  Map<String, dynamic> toMap() => {
+        'id': id,
+        'name': name,
+        'email': email,
+      };
 
-  String get username => _username;
-  String get password => _password;
-
-  Map<String, dynamic> toMap() {
-    var map = new Map<String, dynamic>();
-    map["username"] = _username;
-    map["password"] = _password;
-    return map;
-  }
+  factory User.fromMap(Map<String, dynamic> json) => new User(
+        id: json['id'],
+        name: json['name'],
+        email: json['email'],
+      );
 }
