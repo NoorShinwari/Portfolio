@@ -1,0 +1,6 @@
+package com.example.SQLite_flutter
+
+import io.flutter.embedding.android.FlutterActivity
+
+class MainActivity: FlutterActivity() {
+}
