@@ -1,14 +1,22 @@
 import 'dart:io';
-import 'package:SQLite_flutter/model/clientModel.dart';
+
+import 'package:SQLite_flutter/model/user_model.dart';
 import 'package:path/path.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:sqflite/sqflite.dart';
 
 class DBProvider {
-  DBProvider._();
   static final DBProvider db = DBProvider._();
+  DBProvider._();
 
   static Database _database;
+
+  String userTable = 'user_table';
+  String colId = 'id';
+  String colName = 'name';
+  String colEmail = 'email';
+  String colPassword = 'password';
+  String colDate = 'date';
 
   Future<Database> get database async {
     if (_database != null) return _database;
@@ -16,74 +24,53 @@ class DBProvider {
     return _database;
   }
 
-  initDB() async {
+  Future<Database> initDB() async {
     Directory documentsDirectory = await getApplicationDocumentsDirectory();
     String path = join(documentsDirectory.path, 'TestDB.db');
-    return await openDatabase(path, version: 1, onOpen: (db) {},
-        onCreate: (Database db, int version) async {
-      await db.execute('CREATE TABLE Client ('
-          'id INTEGER PRIMARY KEY,'
-          'first_name TEXT,'
-          'last_name TEXT,'
-          'Blocked BIT'
-          ')');
+    final userListDb =
+        await openDatabase(path, version: 1, onCreate: _createDb);
+    return userListDb;
+  }
+
+  void _createDb(Database database, int version) async {
+    await database.execute(
+      'CREATE TABLE $userTable( $colId INTEGER PRIMARY KEY AUTOINCREMENT, $colName TEXT,$colEmail TEXT,$colPassword TEXT, $colDate TEXT)',
+    );
+  }
+
+  Future<List<Map<String, dynamic>>> getAllUsers() async {
+    Database db = await this.database;
+
+    final List<Map<String, dynamic>> list = await db.query(userTable);
+    return list;
+  }
+
+  Future<List<User>> getUser() async {
+    final List<Map<String, dynamic>> userMapList = await getAllUsers();
+    final List<User> userList = [];
+    userMapList.forEach((userMap) {
+      userList.add(User.fromMap(userMap));
     });
+    return userList;
   }
 
-  newClient(Client newClient) async {
-    final db = await database;
-    var res = await db.insert('Client', newClient.toMap());
+  Future<int> newUser(User newUser) async {
+    Database db = await this.database;
+    final int res = await db.insert(userTable, newUser.toMap());
     return res;
   }
 
-  getClient(int id) async {
-    final db = await database;
-    var res = await db.query("Client", where: "id = ?", whereArgs: [id]);
-    return res.isNotEmpty ? Client.fromMap(res.first) : Null;
-  }
-
-  getAllClients() async {
-    final db = await database;
-    var res = await db.query("Client");
-    List<Client> list =
-        res.isNotEmpty ? res.map((c) => Client.fromMap(c)).toList() : [];
-    return list;
-  }
-
-  getBlockedClients() async {
-    final db = await database;
-    var res = await db.rawQuery("SELECT * FROM Client WHERE blocked=1");
-    List<Client> list =
-        res.isNotEmpty ? res.toList().map((c) => Client.fromMap(c)) : null;
-    return list;
-  }
-
-  updateClient(Client newClient) async {
-    final db = await database;
-    var res = await db.update("Client", newClient.toMap(),
-        where: "id = ?", whereArgs: [newClient.id]);
+  Future<int> updateUser(User newUser) async {
+    Database db = await this.database;
+    final int res = await db.update(userTable, newUser.toMap(),
+        where: "$colId =?", whereArgs: [newUser.id]);
     return res;
   }
 
-  blockOrUnblock(Client client) async {
-    final db = await database;
-    Client blocked = Client(
-        id: client.id,
-        firstName: client.firstName,
-        lastName: client.lastName,
-        blocked: !client.blocked);
-    var res = await db.update("Client", blocked.toMap(),
-        where: "id = ?", whereArgs: [client.id]);
+  Future<int> deleteUser(int id) async {
+    Database db = await this.database;
+    final int res =
+        await db.delete(userTable, where: "$colId = ?", whereArgs: [id]);
     return res;
-  }
-
-  deleteClient(int id) async {
-    final db = await database;
-    db.delete("Client", where: "id = ?", whereArgs: [id]);
-  }
-
-  deleteAll() async {
-    final db = await database;
-    db.rawDelete("Delete * from Client");
   }
 }
