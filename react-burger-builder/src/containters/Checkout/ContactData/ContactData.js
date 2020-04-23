@@ -8,40 +8,40 @@ class ContactData extends Component {
   state = {
     orderForm: {
       name: {
-        elementType: 'input',
-        elementConfig: {
+        elementtype: 'input',
+        elementconfig: {
           type: 'text',
           placeholder: 'Your name',
         },
         value: '',
       },
       street: {
-        elementType: 'input',
-        elementConfig: {
+        elementtype: 'input',
+        elementconfig: {
           type: 'text',
           placeholder: 'Street',
         },
         value: '',
       },
       zipCode: {
-        elementType: 'input',
-        elementConfig: {
+        elementtype: 'input',
+        elementconfig: {
           type: 'text',
           placeholder: 'Zip Code',
         },
         value: '',
       },
       country: {
-        elementType: 'input',
-        elementConfig: {
+        elementtype: 'input',
+        elementconfig: {
           type: 'text',
           placeholder: 'Country',
         },
         value: '',
       },
       email: {
-        elementType: 'input',
-        elementConfig: {
+        elementtype: 'input',
+        elementconfig: {
           type: 'email',
           placeholder: 'Your E-Mail',
         },
@@ -49,8 +49,8 @@ class ContactData extends Component {
       },
 
       deliveryMethod: {
-        elementType: 'select',
-        elementConfig: {
+        elementtype: 'select',
+        elementconfig: {
           options: [
             { value: 'fastest', displayValue: 'Fastest' },
             { value: 'cheapest', displayValue: 'Cheapest' },
@@ -58,7 +58,7 @@ class ContactData extends Component {
         },
         value: '',
       },
-      loading: false,
+      // loading: false,
     },
   };
   orderHandler = (event) => {
@@ -87,12 +87,11 @@ class ContactData extends Component {
     }
     let form = (
       <form>
-        <Input elementType="..." elementConfig="..." value="" />
         {formElementArray.map((formElement) => (
           <Input
             key={formElement.id}
-            elementType={formElement.config.elementType}
-            elementConfig={formElement.config.elementConfig}
+            elementtype={formElement.config.elementtype}
+            elementconfig={formElement.config.elementconfig}
             value={formElement.config.value}
           />
         ))}

@@ -3,12 +3,12 @@ import classes from './Input.module.css';
 
 const input = (props) => {
   let inputElement = null;
-  switch (props.elementType) {
+  switch (props.elementtype) {
     case 'input':
       inputElement = (
         <input
           className={classes.InputElement}
-          {...props.elementCongig}
+          {...props.elementconfig}
           value={props.value}
         />
       );
@@ -22,11 +22,23 @@ const input = (props) => {
         />
       );
       break;
+    case 'select':
+      inputElement = (
+        <select className={classes.InputElement} value={props.value}>
+          {props.elementconfig.options.map((option) => (
+            <option key={option.value} value={option.value}>
+              {option.displayValue}
+            </option>
+          ))}
+        </select>
+      );
+      break;
+
     default:
       inputElement = (
         <input
           className={classes.InputElement}
-          {...props}
+          {...props.elementconfig}
           value={props.value}
         />
       );
