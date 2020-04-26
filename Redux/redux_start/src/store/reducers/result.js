@@ -1,4 +1,4 @@
-import * as actionTypes from '../actions';
+import * as actionTypes from '../actions/actions';
 
 const initialState = {
   results: [],
@@ -18,13 +18,14 @@ const reducer = (state = initialState, action) => {
       const updatedArray = state.results.filter(
         (result) => result.id !== action.resultElId
       );
+
       return {
         ...state,
         results: updatedArray,
       };
+    default:
+      return state;
   }
-
-  return state;
 };
 
 export default reducer;
