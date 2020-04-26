@@ -5,7 +5,6 @@ const initialState = {
 };
 
 const reducer = (state = initialState, action) => {
-  // eslint-disable-next-line default-case
   switch (action.type) {
     case actionTypes.ADD_PERSON:
       const newPerson = {
@@ -24,8 +23,9 @@ const reducer = (state = initialState, action) => {
           (person) => person.id !== action.personId
         ),
       };
+    default:
+      return state;
   }
-  return state;
 };
 
 export default reducer;
