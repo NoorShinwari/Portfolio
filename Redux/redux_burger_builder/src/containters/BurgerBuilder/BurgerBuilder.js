@@ -35,15 +35,15 @@ class BurgerBuilder extends Component {
   }
 
   purchaseHandler = () => {
-    this.setState({ purchasing: true });
-  };
-
-  purchaseCancelHandler = () => {
     if (this.props.isAuthenticated) {
-      this.setState({ purchasing: false });
+      this.setState({ purchasing: true });
     } else {
       this.props.history.push('/auth');
     }
+  };
+
+  purchaseCancelHandler = () => {
+    this.setState({ purchasing: false });
   };
 
   purchaseContinueHandler = () => {
