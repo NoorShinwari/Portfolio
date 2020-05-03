@@ -5,7 +5,7 @@ const indexPage = () => (
   <div>
     <h1>The Main Page</h1>
     <p>
-      Go to{' '}
+      Go to
       <Link href="/auth">
         <a>Auth</a>
       </Link>
