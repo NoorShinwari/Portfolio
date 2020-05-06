@@ -35,50 +35,80 @@ const Ingredients = () => {
   // });
   // const [isLoading, setIsLoading] = useState(false);
   // const [error, setError] = useState();
-  const { isLoading, data, error, sendRequest } = useHttp();
+  const {
+    isLoading,
+    data,
+    error,
+    sendRequest,
+    reqExtra,
+    reqIdentifier,
+  } = useHttp();
 
   useEffect(() => {
-    console.log('RENDERING INGREDIENTS', userIngredients);
-  }, [userIngredients]);
+    if (!isLoading && !error && reqIdentifier === 'REMOVE_INGREDIENT') {
+      dipatch({ type: 'DELETE', id: reqExtra });
+    } else if (!isLoading && !error && reqIdentifier === 'ADD_INGREDIENT') {
+      dipatch({
+        type: 'ADD',
+        ingredient: {
+          id: data.name,
+          ...reqExtra,
+        },
+      });
+    }
+  }, [data, reqExtra, reqIdentifier, isLoading, error]);
 
-  const addIngredientHandler = useCallback((ingredient) => {
-    // // setIsLoading(true);
-    // dispatchHttp({
-    //   type: 'SEND',
-    // });
-    // fetch('https://react-hooks-update-fb720.firebaseio.com/ingredients.json', {
-    //   method: 'POST',
-    //   body: JSON.stringify(ingredient),
-    //   headers: { 'Content-Type': 'application/json' },
-    // })
-    //   .then((response) => {
-    //     // setIsLoading(false);
-    //     dispatchHttp({ type: 'RESPONSE' });
-    //     return response.json();
-    //   })
-    //   .then((responseData) => {
-    //     // setUserIngredients((prevIngredients) => [
-    //     //   ...prevIngredients,
-    //     //   {
-    //     //     id: responseData.name,
-    //     //     ...ingredient,
-    //     //   },
-    //     // ]);
-    //     dipatch({
-    //       type: 'ADD',
-    //       ingredient: {
-    //         id: responseData.name,
-    //         ...ingredient,
-    //       },
-    //     });
-    //   });
-  }, []);
+  const addIngredientHandler = useCallback(
+    (ingredient) => {
+      sendRequest(
+        'https://react-hooks-update-fb720.firebaseio.com/ingredients.json',
+        'POST',
+        JSON.stringify(ingredient),
+        ingredient,
+        'ADD_INGREDIENT'
+      );
+      // // setIsLoading(true);
+      // dispatchHttp({
+      //   type: 'SEND',
+      // });
+      // fetch('https://react-hooks-update-fb720.firebaseio.com/ingredients.json', {
+      //   method: 'POST',
+      //   body: JSON.stringify(ingredient),
+      //   headers: { 'Content-Type': 'application/json' },
+      // })
+      //   .then((response) => {
+      //     // setIsLoading(false);
+      //     dispatchHttp({ type: 'RESPONSE' });
+      //     return response.json();
+      //   })
+      //   .then((responseData) => {
+      //     // setUserIngredients((prevIngredients) => [
+      //     //   ...prevIngredients,
+      //     //   {
+      //     //     id: responseData.name,
+      //     //     ...ingredient,
+      //     //   },
+      //     // ]);
+      //     dipatch({
+      //       type: 'ADD',
+      //       ingredient: {
+      //         id: responseData.name,
+      //         ...ingredient,
+      //       },
+      //     });
+      //   });
+    },
+    [sendRequest]
+  );
 
   const removeIngredientHandler = useCallback(
     (ingredientId) => {
       sendRequest(
         `https://react-hooks-update-fb720.firebaseio.com/ingredients/${ingredientId}.json`,
-        'DELETE'
+        'DELETE',
+        null,
+        ingredientId,
+        'REMOVE_INGREDIENT'
       );
     },
     [sendRequest]
