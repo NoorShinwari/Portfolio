@@ -79,15 +79,23 @@ class _MyHomePageState extends State<MyHomePage> {
             child: Text('Item 1 - pretty big!'),
             color: Colors.red,
           ),
-          Container(
-            height: 100,
-            child: Text('Item 2'),
-            color: Colors.blue,
+          // Flexible(
+          Expanded(
+            flex: 2,
+            // fit: FlexFit.tight,
+            child: Container(
+              height: 100,
+              child: Text('Item 2'),
+              color: Colors.blue,
+            ),
           ),
-          Container(
-            height: 100,
-            child: Text('Item 3'),
-            color: Colors.orange,
+          Flexible(
+            fit: FlexFit.tight,
+            child: Container(
+              height: 100,
+              child: Text('Item 3'),
+              color: Colors.orange,
+            ),
           ),
         ],
       ), // This trailing comma makes auto-formatting nicer for build methods.
