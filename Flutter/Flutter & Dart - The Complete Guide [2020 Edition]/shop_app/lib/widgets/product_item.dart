@@ -15,6 +15,7 @@ class ProductItem extends StatelessWidget {
     final product = Provider.of<Product>(
       context,
     );
+    // Consumer<Product>(builder:ctx, product, child)=> ClipRRect(...)
     return ClipRRect(
       borderRadius: BorderRadius.circular(
         10,
