@@ -15,8 +15,10 @@ class ProductsGrid extends StatelessWidget {
         10,
       ),
       itemCount: products.length,
-      itemBuilder: (ctx, ind) => ChangeNotifierProvider(
-        create: (c) => products[ind],
+      itemBuilder: (ctx, ind) => ChangeNotifierProvider.value(
+        // create: (c) => products[ind], // #1, of course you use just ChangeNotifierProvider(create:...),
+        value: products[
+            ind], //alternative to #1 // With .builder you should use the first approch.
         child: ProductItem(
             // products[ind].id,
             // products[ind].title,
