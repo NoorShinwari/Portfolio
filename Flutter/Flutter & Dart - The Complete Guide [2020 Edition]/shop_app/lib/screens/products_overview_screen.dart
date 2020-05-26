@@ -2,33 +2,33 @@ import 'package:flutter/material.dart';
 import 'package:provider/provider.dart';
 
 import '../widgets/app_drawer.dart';
-import '../screens/cart_screen.dart';
-import '../providers/cart_provider.dart';
 import '../widgets/products_grid.dart';
 import '../widgets/badge.dart';
-import '../providers/products_provider.dart';
+import '../providers/cart.dart';
+import './cart_screen.dart';
+import '../providers/products.dart';
 
 enum FilterOptions {
   Favorites,
   All,
 }
 
-class ProductOverviewScreen extends StatefulWidget {
+class ProductsOverviewScreen extends StatefulWidget {
   @override
-  _ProductOverviewScreenState createState() => _ProductOverviewScreenState();
+  _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
 }
 
-class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
+class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
   var _showOnlyFavorites = false;
-
   var _isInit = true;
   var _isLoading = false;
 
   @override
   void initState() {
-    // Provider.of<Products>(context).fetchAndSetProducts(); WONT WORK!
-    // Future.delayed(Duration.zero)
-    //     .then((_) => Provider.of<Products>(context).fetchAndSetProducts()); // First Approach...
+    // Provider.of<Products>(context).fetchAndSetProducts(); // WON'T WORK!
+    // Future.delayed(Duration.zero).then((_) {
+    //   Provider.of<Products>(context).fetchAndSetProducts();
+    // });
     super.initState();
   }
 
@@ -45,7 +45,6 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
       });
     }
     _isInit = false;
-
     super.didChangeDependencies();
   }
 
@@ -54,7 +53,7 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
     return Scaffold(
       appBar: AppBar(
         title: Text('MyShop'),
-        actions: [
+        actions: <Widget>[
           PopupMenuButton(
             onSelected: (FilterOptions selectedValue) {
               setState(() {
@@ -65,27 +64,25 @@ class _ProductOverviewScreenState extends State<ProductOverviewScreen> {
                 }
               });
             },
-            icon: Icon(Icons.more_vert),
+            icon: Icon(
+              Icons.more_vert,
+            ),
             itemBuilder: (_) => [
-              PopupMenuItem(
-                child: Text(
-                  'Only Favorites',
-                ),
-                value: FilterOptions.Favorites,
-              ),
-              PopupMenuItem(
-                child: Text(
-                  'Show All',
-                ),
-                value: FilterOptions.All,
-              ),
-            ],
+                  PopupMenuItem(
+                    child: Text('Only Favorites'),
+                    value: FilterOptions.Favorites,
+                  ),
+                  PopupMenuItem(
+                    child: Text('Show All'),
+                    value: FilterOptions.All,
+                  ),
+                ],
           ),
           Consumer<Cart>(
             builder: (_, cart, ch) => Badge(
-              child: ch,
-              value: cart.itemCount.toString(),
-            ),
+                  child: ch,
+                  value: cart.itemCount.toString(),
+                ),
             child: IconButton(
               icon: Icon(
                 Icons.shopping_cart,
