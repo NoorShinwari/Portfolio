@@ -82,6 +82,8 @@ class Products with ChangeNotifier {
             title: prodData['title'],
             description: prodData['description'],
             price: prodData['price'],
+            // I made a mistake here, I forgot the code below; I am commenting it out for the future.
+            // isFavorite: prodData['isFavorite'], * i made a mistake here.
             imageUrl: prodData['imageUrl']));
       });
       _items = loadedProducts;
