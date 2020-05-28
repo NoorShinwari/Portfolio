@@ -1,6 +1,7 @@
 import 'dart:io';
 
 import 'package:flutter/material.dart';
+import 'package:image_picker/image_picker.dart';
 
 class ImageInput extends StatefulWidget {
   @override
@@ -9,13 +10,25 @@ class ImageInput extends StatefulWidget {
 
 class _ImageInputState extends State<ImageInput> {
   File _storedImage;
+  // final _picker = ImagePicker();
+
+  Future<void> _takePicture() async {
+    // PickedFile image = await _picker.getImage(
+    //   source: ImageSource.gallery,
+    //   maxWidth: 600,
+    // );
+    final imageFile = await ImagePicker.pickImage(
+      source: ImageSource.camera,
+      maxWidth: 600,
+    );
+  }
 
   @override
   Widget build(BuildContext context) {
     return Row(
       children: [
         Container(
-          width: 100,
+          width: 150,
           height: 100,
           decoration: BoxDecoration(
             border: Border.all(
@@ -29,7 +42,10 @@ class _ImageInputState extends State<ImageInput> {
                   fit: BoxFit.cover,
                   width: double.infinity,
                 )
-              : Text('No Image Taken'),
+              : Text(
+                  'No Image Taken',
+                  textAlign: TextAlign.center,
+                ),
           alignment: Alignment.center,
         ),
         SizedBox(
@@ -37,12 +53,13 @@ class _ImageInputState extends State<ImageInput> {
         ),
         Expanded(
           child: FlatButton.icon(
-              icon: Icon(Icons.camera),
-              label: Text(
-                'Take Picture',
-              ),
-              textColor: Theme.of(context).primaryColor,
-              onPressed: () {}),
+            icon: Icon(Icons.camera),
+            label: Text(
+              'Take Picture',
+            ),
+            textColor: Theme.of(context).primaryColor,
+            onPressed: _takePicture,
+          ),
         ),
       ],
     );
