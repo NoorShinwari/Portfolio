@@ -11,7 +11,7 @@ class LocationInput extends StatefulWidget {
 class _LocationInputState extends State<LocationInput> {
   Future<void> _getCurrentUserLocation() async {
     final locData = await Location().getLocation();
-    final staticMapImageUrl = locationHelper.generateLocationPreviewImage(
+    final staticMapImageUrl = LocationHelper.generateLocationPreviewImage(
         latitude: locData.latitude, longitude: locData.longitude);
     // print(locData.latitude);
     // print(locData.longitude);
