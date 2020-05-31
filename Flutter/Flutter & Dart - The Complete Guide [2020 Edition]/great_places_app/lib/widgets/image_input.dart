@@ -1,9 +1,10 @@
-import 'dart:io';
+// import 'dart:io';
 
 import 'package:flutter/material.dart';
-import 'package:image_picker/image_picker.dart';
-import 'package:path/path.dart' as path;
-import 'package:path_provider/path_provider.dart' as syspaths;
+// import 'package:image_picker/image_picker.dart';
+import 'package:image_picker_web/image_picker_web.dart';
+// import 'package:path/path.dart' as path;
+// import 'package:path_provider/path_provider.dart' as syspaths;
 
 class ImageInput extends StatefulWidget {
   final Function onSelectImage;
@@ -15,28 +16,27 @@ class ImageInput extends StatefulWidget {
 }
 
 class _ImageInputState extends State<ImageInput> {
-  File _storedImage;
+  Image _storedImage;
   // final _picker = ImagePicker();
 
   Future<void> _takePicture() async {
-    // PickedFile image = await _picker.getImage(
-    //   source: ImageSource.gallery,
+    Image fromPicker = await ImagePickerWeb.getImage(
+      outputType: ImageType.widget,
+    );
+    // final imageFile = await ImagePicker.pickImage(
+    //   source: ImageSource.camera,
     //   maxWidth: 600,
     // );
-    final imageFile = await ImagePicker.pickImage(
-      source: ImageSource.camera,
-      maxWidth: 600,
-    );
-    if (imageFile == null) {
+    if (fromPicker == null) {
       return;
     }
     setState(() {
-      _storedImage = imageFile;
+      _storedImage = fromPicker;
     });
-    final appDir = await syspaths.getApplicationDocumentsDirectory();
-    final fileName = path.basename(imageFile.path);
-    final savedImage = await imageFile.copy('${appDir.path}/$fileName');
-    widget.onSelectImage(savedImage);
+    // final appDir = await syspaths.getApplicationDocumentsDirectory();
+    // final fileName = path.basename(fromPicker.path);
+    // final savedImage = await fromPicker.copy('${appDir.path}/$fileName');
+    widget.onSelectImage(fromPicker);
   }
 
   @override
@@ -53,9 +53,8 @@ class _ImageInputState extends State<ImageInput> {
             ),
           ),
           child: _storedImage != null
-              ? Image.file(
-                  _storedImage,
-                  fit: BoxFit.cover,
+              ? Container(
+                  child: _storedImage,
                   width: double.infinity,
                 )
               : Text(
