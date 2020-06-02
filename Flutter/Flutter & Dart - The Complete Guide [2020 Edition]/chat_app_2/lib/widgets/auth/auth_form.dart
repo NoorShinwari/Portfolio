@@ -11,6 +11,7 @@ class AuthForm extends StatefulWidget {
     String email,
     String password,
     String userName,
+    File image,
     bool isLogin,
     BuildContext ctx,
   ) submitFn;
@@ -33,7 +34,7 @@ class _AuthFormState extends State<AuthForm> {
   void _trySubmit() {
     final isValid = _formKey.currentState.validate();
     FocusScope.of(context).unfocus();
-    if (_userImageFile != null && !_isLogin) {
+    if (_userImageFile == null && !_isLogin) {
       Scaffold.of(context).showSnackBar(
         SnackBar(
           content: Text('Please pick an image.'),
@@ -49,6 +50,7 @@ class _AuthFormState extends State<AuthForm> {
         _userEmail.trim(),
         _userPassword.trim(),
         _userName.trim(),
+        _userImageFile,
         _isLogin,
         context,
       );
