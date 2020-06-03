@@ -36,13 +36,15 @@ class _MyHomePageState extends State<MyHomePage> {
       setState(() {
         _batteryLevel = null;
       });
-    } catch (error) {}
+    }
   }
 
   @override
   void initState() {
-    // TODO: implement initState
+    super.initState();
+    _getBatteryLevel();
   }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
