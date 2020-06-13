@@ -11,35 +11,81 @@ class MyApp extends StatelessWidget {
       home: Scaffold(
         backgroundColor: Colors.teal,
         body: SafeArea(
-            child: Row(
-          crossAxisAlignment: CrossAxisAlignment.stretch,
-          mainAxisAlignment: MainAxisAlignment.spaceBetween,
-          children: [
-            Container(
-              width: 100,
-              color: Colors.red,
-            ),
-            Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                Container(
-                  width: 100,
-                  height: 100,
-                  color: Colors.yellow,
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              CircleAvatar(
+                radius: 50,
+                backgroundImage: AssetImage('assets/joker.png'),
+              ),
+              Text(
+                'Joker',
+                style: TextStyle(
+                    fontFamily: 'Pacifico',
+                    fontWeight: FontWeight.bold,
+                    fontSize: 40,
+                    color: Colors.white),
+              ),
+              Text(
+                'JUNIOR DEVELOPER',
+                style: TextStyle(
+                    fontFamily: 'Source Sans Pro',
+                    fontSize: 20,
+                    color: Colors.teal[100],
+                    letterSpacing: 2.5,
+                    fontWeight: FontWeight.bold),
+              ),
+              SizedBox(
+                height: 20.0,
+                width: 150.0,
+                child: Divider(
+                  color: Colors.teal.shade100,
+                  thickness: 1.0,
                 ),
-                Container(
-                  height: 100,
-                  width: 100,
-                  color: Colors.green,
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 25,
                 ),
-              ],
-            ),
-            Container(
-              width: 100,
-              color: Colors.blue,
-            ),
-          ],
-        )),
+                color: Colors.white,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.phone,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    '+39 123 456 789',
+                    style: TextStyle(
+                        color: Colors.teal.shade900,
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0),
+                  ),
+                ),
+              ),
+              Card(
+                margin: EdgeInsets.symmetric(
+                  vertical: 10,
+                  horizontal: 25,
+                ),
+                color: Colors.white,
+                child: ListTile(
+                  leading: Icon(
+                    Icons.email,
+                    color: Colors.teal,
+                  ),
+                  title: Text(
+                    'example@email.com',
+                    style: TextStyle(
+                        color: Colors.teal.shade900,
+                        fontFamily: 'Source Sans Pro',
+                        fontSize: 20.0),
+                  ),
+                ),
+              ),
+            ],
+          ),
+        ),
       ),
     );
   }
